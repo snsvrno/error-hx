@@ -31,7 +31,7 @@ class Error {
 		return (65 <= code && code <= 90) || (97 <= code && code <= 122) || code == 95;
 	}
 
-	private static function render(format : String, errorMsg : ErrorMsg) : String {
+	private static function render(format : String, e : Error) : String {
 		var msg = "";
 		var pos = 0;
 		var char : String;
@@ -42,8 +42,8 @@ class Error {
 				isVar = true;
 				varname = "";
 			} else if (!validVarChar(char) && isVar) {
-				if (varname == "kind") msg += errorMsg.kind;
-				else msg += '${errorMsg.values.get(varname)}';
+				if (varname == "kind") msg += e.kind;
+				else msg += '${e.values.get(varname)}';
 				varname = "";
 				isVar = false;
 				msg += char;
@@ -53,8 +53,8 @@ class Error {
 			}
 		}
 		if (isVar == true && varname.length > 0) {
-			if (varname == "kind") msg += errorMsg.kind + " ";
-			else msg += '${errorMsg.values.get(varname)} ';
+			if (varname == "kind") msg += e.kind + " ";
+			else msg += '${e.values.get(varname)} ';
 		}
 		return msg;
 	}
@@ -67,7 +67,7 @@ class Error {
 	}
 
 	#if result
-	inline public static function add<T>(r : result.Result<T,ErrorMsg>, values : Dynamic) {
+	inline public static function add<T>(r : result.Result<T,Error>, values : Dynamic) {
 		switch (r) {
 			case Error(msg): msg.add(values);
 			case _:
