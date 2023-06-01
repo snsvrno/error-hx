@@ -1,0 +1,8 @@
+{
+	"name": "error",
+	"url": "https://github.com/snsvrno/error-hx",
+	"description": "Error object for more universal error handling",
+	"version": "0.0.0",
+	"contributors": ["snsvrno"],
+	"classPath": "lib/"
+}
