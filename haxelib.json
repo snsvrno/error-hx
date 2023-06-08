@@ -2,7 +2,8 @@
 	"name": "error",
 	"url": "https://github.com/snsvrno/error-hx",
 	"description": "Error object for more universal error handling",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"contributors": ["snsvrno"],
-	"classPath": "lib/"
+	"classPath": "lib/",
+	"releaseNotes": "inital release"
 }
