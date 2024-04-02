@@ -1,5 +1,9 @@
 package error;
 
 interface Error {
-	public function msg() : String;
+	public function toString() : String;
+}
+
+inline macro function passthrough(item:haxe.macro.Expr) {
+	return item;
 }
